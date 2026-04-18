@@ -9,6 +9,12 @@ Build and publish `plastic-labs/honcho` container images to `ghcr.io/matrixhawk/
 - If the image tag does not exist, the workflow builds directly from the upstream Git tag and reuses upstream's `Dockerfile`.
 - When the built tag is also the highest stable upstream version (`vMAJOR.MINOR.PATCH`), the workflow also publishes `ghcr.io/matrixhawk/honcho:latest`.
 
+## Auto sync
+
+- The workflow runs on a schedule every 6 hours.
+- New upstream tags are published automatically on the next successful scheduled run.
+- GitHub scheduled workflows can run a bit later than the exact cron time, so short delays are normal.
+
 ## Manual rebuild
 
 Use `Actions -> Publish Honcho Image -> Run workflow`.
